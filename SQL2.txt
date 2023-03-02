@@ -1,0 +1,56 @@
+SQL> create table student
+  2  (id number(10),name varchar(20),age number(4),gender varchar2(20));
+
+Table created.
+
+SQL> insert into student
+  2  ('1', 'Amruta','20','F');
+('1', 'Amruta','20','F')
+ *
+ERROR at line 2:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into student values('1','Amruta','20','F');
+
+1 row created.
+
+SQL> insert into student values('2','Ganesh',19','M');
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> insert into student values('2','Ganesh','22','M');
+
+1 row created.
+
+SQL> 
+
+SQL> insert into student values('3','Nisha','19','F');
+
+1 row created.
+
+SQL> select * from student;
+
+        ID NAME                        AGE GENDER
+---------- -------------------- ---------- --------------------
+         1 Amruta                       20 F
+         2 Ganesh                       22 M
+         3 Nisha                        19 F
+
+SQL> update student set name='Janet' where id=2;
+
+1 row updated.
+
+SQL> delete from student where id=3;
+
+1 row deleted.
+
+SQL> select * from student;
+
+        ID NAME                        AGE GENDER
+---------- -------------------- ---------- --------------------
+         1 Amruta                       20 F
+         2 Janet                        22 M
+
+SQL> 
